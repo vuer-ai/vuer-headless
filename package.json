@@ -1,0 +1,39 @@
+{
+  "name": "vuer-headless",
+  "version": "0.0.0",
+  "description": "Headless rendering with GPU acceleration",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuer-ai/vuer-headless.git"
+  },
+  "keywords": [
+    "vuer",
+    "headless",
+    "GPU",
+    "acceleration",
+    "chromium",
+    "threejs",
+    "react-three-fiber",
+    "r3f"
+  ],
+  "author": "Ge Yang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vuer-ai/vuer-headless/issues"
+  },
+  "homepage": "https://github.com/vuer-ai/vuer-headless#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "puppeteer-to-istanbul": "^1.4.0",
+    "tslint": "^6.1.3",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "puppeteer": "^21.7.0"
+  }
+}
