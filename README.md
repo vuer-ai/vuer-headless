@@ -4,6 +4,8 @@ This is an example of how to use vuer to render a scene in headless mode.
 Although we provide a vuer script, you should be able to use any vuer script
 with this setup. Just change the url in the [src/index.ts](src/index.ts) file.
 
+![outputs/example.png](outputs/example.png)
+
 ## Setup
 
 1. First install `node` through `nvm`.
