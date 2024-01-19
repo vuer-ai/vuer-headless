@@ -47,3 +47,12 @@ ts-node src/index.ts
 ```
 
 To test if webgl is enabled, use puppeteer to visit `https://use.webgl.org`.
+
+## Known Issues
+
+**Low frame rate**: The frame rate is low for grabbing rendered images from the default
+camera. Not sure why.
+
+**Puppeteer `waitFor...` trigger not idea**: I am currenting using a leva className
+as the trigger, but this is not idea. Need to find a better way to identify page 
+and app load.
