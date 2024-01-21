@@ -18,7 +18,6 @@ console.log("Architecture: " + os.arch());
 const args = [
   '--headless',
   `--use-gl=angle`,
-  '--no-sandbox',
 ];
 
 
@@ -35,7 +34,7 @@ const args = [
   await page.setViewport({ width: 1280, height: 800 });
   await page.waitForSelector('.leva-c-kXfPOu');
   // pup2ist.write([...jsCoverage]);
-  console.log("Waiting for 5 seconds...")
+  console.log("Waiting for 50 seconds...")
   await page.waitForTimeout(50000);
   // const jsCoverage = await page.coverage.stopJSCoverage();
   await page.screenshot({ path: outputName + '.png' });
