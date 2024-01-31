@@ -17,6 +17,7 @@ console.log("Architecture: " + os.arch());
 
 const args = [
   '--headless',
+  // this is for macOS. For linux, use --use-gl=egl
   `--use-gl=angle`,
 ];
 
