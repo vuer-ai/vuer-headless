@@ -8,9 +8,9 @@ import * as os from 'os';
 // const pagePath = "https://threejs.org/examples/?q=webgl#webgl_camera"
 // const pagePath = "https://google.com";
 // const pagePath = "https://munrocket.github.io/gl-bench/examples/named-measuring.html";
-const pagePath = "https://vuer.ai";
+const pagePath = "https://vuer.ai/?ws=ws://localhost:8012&grid=False&background=000000";
 
-const outputName = "outputs/example";
+// const outputName = "outputs/example";
 
 console.log("Platform: " + os.platform());
 console.log("Architecture: " + os.arch());
@@ -30,14 +30,15 @@ const args = [
   console.log("Headless browser started.")
   const page = await browser.newPage();
   // await page.coverage.startJSCoverage();
+  // this is not a typo: networkidle2 is the correct value.
   await page.goto(pagePath, {waitUntil: 'networkidle2'});
   await page.setViewport({ width: 1280, height: 800 });
   await page.waitForSelector('.leva-c-kXfPOu');
   // pup2ist.write([...jsCoverage]);
-  console.log("Waiting for 50 seconds...")
-  await page.waitForTimeout(50000);
+  console.log("Waiting for 60 seconds...")
+  await page.waitForTimeout(600000);
   // const jsCoverage = await page.coverage.stopJSCoverage();
-  await page.screenshot({ path: outputName + '.png' });
+  // await page.screenshot({ path: outputName + '.png' });
   // await page.pdf({path: outputName + '.pdf'});
   await browser.close();
 })();
