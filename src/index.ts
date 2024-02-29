@@ -8,7 +8,7 @@ import * as os from 'os';
 // const pagePath = "https://threejs.org/examples/?q=webgl#webgl_camera"
 // const pagePath = "https://google.com";
 // const pagePath = "https://munrocket.github.io/gl-bench/examples/named-measuring.html";
-const pagePath = "https://vuer.ai/?ws=ws://localhost:8015&grid=False&background=0000ff";
+const pagePath = "https://vuer.ai?ws=ws://localhost:8017&grid=False&background=0000ff";
 
 // const outputName = "outputs/example";
 
@@ -29,7 +29,9 @@ if (process.platform == "linux") parameters = [
     '--disable-features=Translate',
     '--no-default-browser-check',
     '--window-size=1280,720',
-    '--allow-chrome-scheme-url'
+    '--allow-chrome-scheme-url',
+    "--proxy-server='direct://'",
+    '--proxy-bypass-list=*'
 ];
 else if (process.platform == "darwin") parameters = [
     '--headless',
@@ -46,6 +48,7 @@ else if (process.platform == "darwin") parameters = [
     });
     console.log("Headless browser started.")
     const page = await browser.newPage();
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36')
     // await page.coverage.startJSCoverage();
     // this is not a typo: networkidle2 is the correct value.
     await page.goto(pagePath, {waitUntil: 'networkidle2'});
