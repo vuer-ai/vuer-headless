@@ -15,8 +15,8 @@ const pagePath = "https://vuer.ai/?ws=ws://localhost:8015&grid=False&background=
 console.log("Platform: " + os.platform());
 console.log("Architecture: " + os.arch());
 
-let args;
-if (process.platform == "linux") args = [
+let parameters: string[] = [];
+if (process.platform == "linux") parameters = [
     '--no-sandbox',
     '--headless=new',
     '--use-angle=vulkan',
@@ -31,18 +31,17 @@ if (process.platform == "linux") args = [
     '--window-size=1280,720',
     '--allow-chrome-scheme-url'
 ];
-else if (process.platform == "darwin") args = [
+else if (process.platform == "darwin") parameters = [
     '--headless',
     // this is for macOS. For linux, use --use-gl=egl
     `--use-gl=angle`,
 ];
-else args = []
 
 
 (async () => {
     console.log("Starting the headless browser...")
     const browser = await puppeteer.launch({
-        args,
+        args: parameters,
         headless: "new",
     });
     console.log("Headless browser started.")
